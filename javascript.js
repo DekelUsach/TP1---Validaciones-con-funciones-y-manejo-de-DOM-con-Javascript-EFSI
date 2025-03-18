@@ -18,9 +18,12 @@ notaMates.addEventListener("input", () => {
 
     if (notaMates.value < 0 || notaMates.value > 10) {
         avisoMates.innerHTML = "¡El numero debe ser positivo y menor a 10!"
+        avisoMates.id="avisoRed"
     }
     else {
-        avisoMates.innerHTML = "";
+        avisoMates.innerHTML = "¡El numero debe ser positivo y menor a 10!"
+        avisoMates.id = "avisoGreen"
+        
     }
 
 })
@@ -30,9 +33,13 @@ notaMates.addEventListener("input", () => {
 notaLengua.addEventListener("input", () => {
     if (notaLengua.value < 0 || notaLengua.value > 10) {
         avisoLengua.innerHTML = "¡El numero debe ser positivo y menor a 10!"
+        avisoLengua.id= "avisoRed"
     }
     else {
-        avisoLengua.innerHTML = "";
+        avisoLengua.innerHTML = "¡El numero debe ser positivo y menor a 10!"
+        avisoLengua.id= "avisoGreen"
+        
+        
     }
 })
 
@@ -43,25 +50,34 @@ notaLengua.addEventListener("input", () => {
 notaEFSI.addEventListener("input", () => {
     if (notaEFSI.value < 0 || notaEFSI.value > 10) {
         avisoEFSI.innerHTML = "¡El numero debe ser positivo y menor a 10!"
+        avisoEFSI.id = "avisoRed"
     }
     else {
-        avisoEFSI.innerHTML = "";
+        avisoEFSI.innerHTML = "¡El numero debe ser positivo y menor a 10!"
+        avisoEFSI.id = "avisoGreen"
+      
     }
-
+    
 })
 
 
 
 // Botones
+// Promedio
 btnPromedio.addEventListener("click", (event) => {
 
     if ((notaMates.value < 0 || notaMates.value > 10 || notaMates.value == "") || (notaLengua.value < 0 || notaLengua.value > 10 || notaLengua.value == "") || (notaEFSI.value < 0 || notaEFSI > 10 || notaEFSI.value == "")) {
         event.preventDefault();
     }
 
-    else{
-        avisoResultado.innerHTML = "El promedio es " + ((parseInt(notaMates.value) + parseInt(notaLengua.value)+ parseInt(notaEFSI.value))/3) 
-
+    else {
+        let promedio = ((parseInt(notaMates.value) + parseInt(notaLengua.value) + parseInt(notaEFSI.value))) / 3;
+        if (promedio >= 6) {
+            avisoResultado.innerHTML = `<p  style= "color: green;">El promedio es ${promedio}</p>`
+        }
+        else {
+            avisoResultado.innerHTML = `<p style= "color: red;">El promedio es ${promedio}</p>`
+        }
     }
     if (notaMates.value == "" || notaLengua.value == "" || notaEFSI.value == "") {
         avisoGeneral.innerHTML = "Todos los campos deben estar llenos!"
@@ -70,27 +86,53 @@ btnPromedio.addEventListener("click", (event) => {
         avisoGeneral.innerHTML = ""
     }
 
-    
+
 
 })
 
-btrNotaAlta.addEventListener("click",(event)=>
-{
+// Nota mas alta
+btrNotaAlta.addEventListener("click", (event) => {
+    avisoResultado.innerHTML = "";
     if ((notaMates.value < 0 || notaMates.value > 10 || notaMates.value == "") || (notaLengua.value < 0 || notaLengua.value > 10 || notaLengua.value == "") || (notaEFSI.value < 0 || notaEFSI > 10 || notaEFSI.value == "")) {
         event.preventDefault();
     }
-    else{
-        
-        
+
+    else {
         let mates = notaMates.value
         let lengua = notaLengua.value
         let efsi = notaEFSI.value
 
-        const arrayNotas = [mates,lengua,efsi]
+        const arrayNotas = [
+            { materia: "Matemáticas", nota: mates },
+            { materia: "Lengua", nota: lengua },
+            { materia: "EFSI", nota: efsi }
+        ];
 
-        console.log(arrayNotas.sort(function(a,b){return b-a}))
-        
 
+        arrayNotas.sort(function (a, b) {
+            return b.nota - a.nota;
+        });
+
+        let i = 0;
+        arrayNotas.forEach(item => {
+            i++;
+            if (item == arrayNotas[0])
+                avisoResultado.innerHTML += `<p id = "nota${i}" class="notas" style="color: blue;">${item.materia}: ${item.nota}</p> `;
+            else
+                avisoResultado.innerHTML += `<p class="notas" id = "nota${i}"style ="">${item.materia}: ${item.nota}</p>`;
+        });
+        if (arrayNotas[1].nota == arrayNotas[0].nota) {
+            const nota = document.querySelector("#nota2")
+            console.log(nota)
+            nota.style.color = "blue";
+
+        }
+
+        if (arrayNotas[1].nota == arrayNotas[0].nota && arrayNotas[2].nota == arrayNotas[0].nota) {
+            const nota2 = document.querySelector("#nota3")
+            nota2.style.color = "blue";
+
+        }
 
 
 
@@ -102,3 +144,4 @@ btrNotaAlta.addEventListener("click",(event)=>
         avisoGeneral.innerHTML = ""
     }
 })
+

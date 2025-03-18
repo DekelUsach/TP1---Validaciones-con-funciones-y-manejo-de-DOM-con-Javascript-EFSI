@@ -1,0 +1,99 @@
+/* Importamos una fuente moderna */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* Reset de estilos global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Contenedor del formulario */
+.formu {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los inputs */
+.formu input[type="number"] {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.formu input[type="number"]:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+/* Avisos y mensajes */
+.formu div[class^="aviso"] {
+  font-size: 1.2rem; /* Tamaño base */
+  font-weight: 600;
+  color: #555;
+  min-height: 1.5rem;
+  transition: font-size 0.3s ease, transform 0.3s ease;
+}
+
+/* Cuando aparezcan los avisos (al tener contenido) se agrandan ligeramente */
+.formu div[class^="aviso"]:not(:empty) {
+  font-size: 1.4rem;
+  transform: scale(1.05);
+}
+
+/* Estilos para los botones */
+button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Estilos específicos para elementos con id */
+#mayorNota {
+  color: blue;
+  font-weight: 600;
+}
+
+#avisoGreen {
+  color: green;
+  font-weight: 600;
+}
+
+#avisoRed {
+  color: red;
+  font-weight: 600;
+}
