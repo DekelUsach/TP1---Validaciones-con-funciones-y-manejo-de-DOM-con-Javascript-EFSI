@@ -31,6 +31,9 @@ notaMates.addEventListener("input", () => {
         avisoMates.id = "avisoGreen"
 
     }
+    if(notaMates.value == ""){
+        avisoMates.id = ""
+    }
 
 })
 
@@ -49,8 +52,9 @@ notaLengua.addEventListener("input", () => {
     else {
         avisoLengua.innerHTML = "Numero positivo y menor a 10"
         avisoLengua.id = "avisoGreen"
-
-
+    }
+    if(avisoLengua.value == ""){
+        avisoLengua.id = ""
     }
 })
 
@@ -73,7 +77,8 @@ notaEFSI.addEventListener("input", () => {
         avisoEFSI.id = "avisoGreen"
 
     }
-
+    if(avisoEFSI.value == "")
+    avisoEFSI.id = ""
 })
 
 
@@ -97,7 +102,6 @@ btnPromedio.addEventListener("click", (event) => {
     }
     if (notaMates.value == "" || notaLengua.value == "" || notaEFSI.value == "") {
         avisoGeneral.innerHTML = `<p>"Todos los campos deben estar llenos!"</p>`
-
         avisoResultado.innerHTML = ""
     }
     else if (notaMates.value != "" || notaLengua.value != "" || notaEFSI.value != "") {
