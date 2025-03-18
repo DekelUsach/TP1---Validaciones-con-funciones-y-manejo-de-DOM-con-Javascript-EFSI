@@ -16,13 +16,14 @@ const btrNotaAlta = document.querySelector(".notaAlta")
 // Matematicas
 notaMates.addEventListener("input", () => {
 
-    if (notaMates.value < 0 || notaMates.value > 10 || NoLetras(notaMates.value) == false) {
+    if (notaMates.value < 0 || notaMates.value > 10 || NoLetras(notaMates.value) == false) 
+    {
         if (NoLetras(notaMates.value) == false) {
             avisoMates.innerHTML = "¡No debes usar letras!"
-            
+
         }
         else
-        avisoMates.innerHTML = "Numero positivo y menor a 10"
+            avisoMates.innerHTML = "Numero positivo y menor a 10"
 
         avisoMates.id = "avisoRed"
     }
@@ -31,7 +32,7 @@ notaMates.addEventListener("input", () => {
         avisoMates.id = "avisoGreen"
 
     }
-    if(notaMates.value == ""){
+    if (notaMates.value == "") {
         avisoMates.id = ""
     }
 
@@ -40,7 +41,8 @@ notaMates.addEventListener("input", () => {
 // Lengua
 
 notaLengua.addEventListener("input", () => {
-    if (notaLengua.value < 0 || notaLengua.value > 10 || NoLetras(notaLengua.value) == false) {
+    if (notaLengua.value < 0 || notaLengua.value > 10 || NoLetras(notaLengua.value) == false) 
+    {
         if (NoLetras(notaLengua.value) == false) {
             avisoLengua.innerHTML = "¡No debes usar letras!"
         }
@@ -53,7 +55,7 @@ notaLengua.addEventListener("input", () => {
         avisoLengua.innerHTML = "Numero positivo y menor a 10"
         avisoLengua.id = "avisoGreen"
     }
-    if(avisoLengua.value == ""){
+    if (notaLengua.value == "") {
         avisoLengua.id = ""
     }
 })
@@ -77,8 +79,8 @@ notaEFSI.addEventListener("input", () => {
         avisoEFSI.id = "avisoGreen"
 
     }
-    if(avisoEFSI.value == "")
-    avisoEFSI.id = ""
+    if (notaEFSI.value == "")
+        avisoEFSI.id = ""
 })
 
 
@@ -87,7 +89,7 @@ notaEFSI.addEventListener("input", () => {
 // Promedio
 btnPromedio.addEventListener("click", (event) => {
 
-    if ((notaMates.value < 0 || notaMates.value > 10 || notaMates.value == "") || (notaLengua.value < 0 || notaLengua.value > 10 || notaLengua.value == "") || (notaEFSI.value < 0 || notaEFSI > 10 || notaEFSI.value == "") ) {
+    if ((notaMates.value < 0 || notaMates.value > 10 || notaMates.value == "") || (notaLengua.value < 0 || notaLengua.value > 10 || notaLengua.value == "") || (notaEFSI.value < 0 || notaEFSI > 10 || notaEFSI.value == "")) {
         event.preventDefault();
     }
 
