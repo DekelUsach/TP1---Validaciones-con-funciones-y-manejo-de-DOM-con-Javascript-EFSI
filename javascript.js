@@ -16,14 +16,20 @@ const btrNotaAlta = document.querySelector(".notaAlta")
 // Matematicas
 notaMates.addEventListener("input", () => {
 
-    if (notaMates.value < 0 || notaMates.value > 10) {
-        avisoMates.innerHTML = "¡El numero debe ser positivo y menor a 10!"
-        avisoMates.id="avisoRed"
+    if (notaMates.value < 0 || notaMates.value > 10 || NoLetras(notaMates.value) == false) {
+        if (NoLetras(notaMates.value) == false) {
+            avisoMates.innerHTML = "¡No debes usar letras!"
+            
+        }
+        else
+        avisoMates.innerHTML = "Numero positivo y menor a 10"
+
+        avisoMates.id = "avisoRed"
     }
     else {
-        avisoMates.innerHTML = "¡El numero debe ser positivo y menor a 10!"
+        avisoMates.innerHTML = "Numero positivo y menor a 10"
         avisoMates.id = "avisoGreen"
-        
+
     }
 
 })
@@ -31,15 +37,20 @@ notaMates.addEventListener("input", () => {
 // Lengua
 
 notaLengua.addEventListener("input", () => {
-    if (notaLengua.value < 0 || notaLengua.value > 10) {
-        avisoLengua.innerHTML = "¡El numero debe ser positivo y menor a 10!"
-        avisoLengua.id= "avisoRed"
+    if (notaLengua.value < 0 || notaLengua.value > 10 || NoLetras(notaLengua.value) == false) {
+        if (NoLetras(notaLengua.value) == false) {
+            avisoLengua.innerHTML = "¡No debes usar letras!"
+        }
+        else
+            avisoLengua.innerHTML = "Numero positivo y menor a 10"
+
+        avisoLengua.id = "avisoRed"
     }
     else {
-        avisoLengua.innerHTML = "¡El numero debe ser positivo y menor a 10!"
-        avisoLengua.id= "avisoGreen"
-        
-        
+        avisoLengua.innerHTML = "Numero positivo y menor a 10"
+        avisoLengua.id = "avisoGreen"
+
+
     }
 })
 
@@ -48,16 +59,21 @@ notaLengua.addEventListener("input", () => {
 
 // Efsi
 notaEFSI.addEventListener("input", () => {
-    if (notaEFSI.value < 0 || notaEFSI.value > 10) {
-        avisoEFSI.innerHTML = "¡El numero debe ser positivo y menor a 10!"
+    if (notaEFSI.value < 0 || notaEFSI.value > 10 || NoLetras(notaEFSI.value) == false) {
+        if (NoLetras(notaEFSI.value) == false) {
+            avisoEFSI.innerHTML = "¡El numero no debe ser letra!"
+        }
+        else
+            avisoEFSI.innerHTML = "Numero positivo y menor a 10"
+
         avisoEFSI.id = "avisoRed"
     }
     else {
-        avisoEFSI.innerHTML = "¡El numero debe ser positivo y menor a 10!"
+        avisoEFSI.innerHTML = "Numero positivo y menor a 10"
         avisoEFSI.id = "avisoGreen"
-      
+
     }
-    
+
 })
 
 
@@ -66,7 +82,7 @@ notaEFSI.addEventListener("input", () => {
 // Promedio
 btnPromedio.addEventListener("click", (event) => {
 
-    if ((notaMates.value < 0 || notaMates.value > 10 || notaMates.value == "") || (notaLengua.value < 0 || notaLengua.value > 10 || notaLengua.value == "") || (notaEFSI.value < 0 || notaEFSI > 10 || notaEFSI.value == "")) {
+    if ((notaMates.value < 0 || notaMates.value > 10 || notaMates.value == "") || (notaLengua.value < 0 || notaLengua.value > 10 || notaLengua.value == "") || (notaEFSI.value < 0 || notaEFSI > 10 || notaEFSI.value == "") ) {
         event.preventDefault();
     }
 
@@ -80,7 +96,9 @@ btnPromedio.addEventListener("click", (event) => {
         }
     }
     if (notaMates.value == "" || notaLengua.value == "" || notaEFSI.value == "") {
-        avisoGeneral.innerHTML = "Todos los campos deben estar llenos!"
+        avisoGeneral.innerHTML = `<p>"Todos los campos deben estar llenos!"</p>`
+
+        avisoResultado.innerHTML = ""
     }
     else if (notaMates.value != "" || notaLengua.value != "" || notaEFSI.value != "") {
         avisoGeneral.innerHTML = ""
@@ -138,10 +156,14 @@ btrNotaAlta.addEventListener("click", (event) => {
 
     }
     if (notaMates.value == "" || notaLengua.value == "" || notaEFSI.value == "") {
-        avisoGeneral.innerHTML = "Todos los campos deben estar llenos!"
+        avisoGeneral.innerHTML = `<p>"Todos los campos deben estar llenos!"</p>`
     }
     else if (notaMates.value != "" || notaLengua.value != "" || notaEFSI.value != "") {
         avisoGeneral.innerHTML = ""
     }
 })
 
+
+function NoLetras(texto) {
+    return /^[^a-zA-Z]*$/.test(texto);
+}

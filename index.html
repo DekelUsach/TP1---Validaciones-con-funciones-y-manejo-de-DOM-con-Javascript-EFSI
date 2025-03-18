@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EFSI</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <form action="" class ="formu">
-    <input type="number" placeholder="ingrese la nota de mates" class="notaMates" >
-    <div class="avisoMates"></div>
-    <input type="number" placeholder="ingrese la nota de lengua" class= "notaLengua"  >
-    <div class="avisoLengua"></div>
+    <form action="" class="formu">
+        <input type="number" placeholder="ingrese la nota de mates" class="notaMates">
+        <div class="avisoMates"></div>
+        <input type="number" placeholder="ingrese la nota de lengua" class="notaLengua">
+        <div class="avisoLengua"></div>
 
-    <input type="number" placeholder="ingrese la nota de EFSI" class="notaEFSI"  >
-    <div class="avisoEFSI"></div>
+        <input type="number" placeholder="ingrese la nota de EFSI" class="notaEFSI">
+        <div class="avisoEFSI"></div>
 
-    <div class="avisoGeneral"></div>
+        <div class="avisoGeneral"></div>
 
-    <div class="avisoResultado"></div>
 
-</form>
-<button  class="promedio">Calcular promedio</button>
-<button  class="notaAlta">Calcular nota mas alta</button>
+    </form>
+    <div class="botones">
+        <button class="promedio">Calcular promedio</button>
+        <button class="notaAlta">Calcular nota mas alta</button>
+        <div class="resultado">
+            <div class="avisoResultado"></div>
+        </div>
+    </div>
 
     <script src="javascript.js"></script>
 </body>
+
 </html>
